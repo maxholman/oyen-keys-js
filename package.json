@@ -1,5 +1,5 @@
 {
-  "name": "@oyen/keys",
+  "name": "@oyen-oss/keys",
   "version": "1.0.1",
   "license": "MIT",
   "type": "module",
@@ -14,8 +14,8 @@
     }
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts"
+    "dist/*.js",
+    "dist/*.d.ts"
   ],
   "scripts": {
     "preversion": "make test"

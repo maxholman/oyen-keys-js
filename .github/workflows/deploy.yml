@@ -24,14 +24,16 @@ jobs:
         with:
           cache: 'pnpm'
           node-version: 20
-          scope: '@oyen'
+          scope: '@oyen-oss'
           registry-url: 'https://npm.pkg.github.com'
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: make test
 
+      - run: make clean
+
       - run: make dist
 
-      - run: pnpm publish --access=public --no-git-checks
+      - run: pnpm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
