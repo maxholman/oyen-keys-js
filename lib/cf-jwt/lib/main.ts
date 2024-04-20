@@ -200,17 +200,8 @@ export async function verifyJwks<
 
   const algorithm = algorithms[key.alg];
 
-  try {
-    const keyData = await crypto.subtle.importKey(
-      'jwk',
-      key,
-      algorithm,
-      false,
-      ['verify'],
-    );
-    return await verify<P, H>(token, keyData);
-  } catch (err) {
-    console.trace('Error importing key', err, key);
-    throw err;
-  }
+  const keyData = await crypto.subtle.importKey('jwk', key, algorithm, false, [
+    'verify',
+  ]);
+  return verify<P, H>(token, keyData);
 }

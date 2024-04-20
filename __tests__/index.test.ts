@@ -1,10 +1,10 @@
+import { readFile } from 'node:fs/promises';
 import { describe, test } from '@jest/globals';
 import { createApiKey } from '../lib/api-key.js';
-import { readFile } from 'node:fs/promises';
 
 const privateKey = await readFile(
   new URL(
-    './jwk-dash.nonolocal.com-z7t7j3d8cTD-cXshVNwSvDZ8.txt',
+    './jwk-dash.oyenlocal.com-z7t7j3d8cTD-cXshVNwSvDZ8.txt',
     import.meta.url,
   ),
   'utf8',
@@ -13,7 +13,7 @@ const privateKey = await readFile(
 describe('Basic', () => {
   const teamId = 'z7t7j3d8cTD';
   const eventSourceId = 'K7pWQnDx8z2Y';
-  const channelName = 'woot';
+  const channelName = 'main';
 
   test('Nothing', async () => {
     const staticApiKey = await createApiKey({
