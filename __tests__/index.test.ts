@@ -1,5 +1,5 @@
 import { readFile } from 'node:fs/promises';
-import { describe, test } from '@jest/globals';
+import { describe, test } from 'vitest';
 import { createApiKey } from '../lib/api-key.js';
 
 const privateKey = await readFile(
@@ -22,7 +22,7 @@ describe('Basic', () => {
       // ttlSecs: 3600,
       claims: {
         //   // this is kind of like the user agent for an API call
-        //   // issuer: 'https://jest.invalid',
+        //   // issuer: 'https://test.invalid',
         cap: {
           // keys: ['list'],
           // [`emails/${emailId}`]: ['read'],
@@ -42,7 +42,7 @@ describe('Basic', () => {
     //     sub: teamId,
 
     //     // this is kind of like the user agent for an API call
-    //     // issuer: 'https://jest.invalid',
+    //     // issuer: 'https://test.invalid',
     //     scopes: {
     //       keys: ['list'],
     //       [`email:${emailId}`]: ['read'],
