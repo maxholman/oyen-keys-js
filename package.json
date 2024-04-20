@@ -5,18 +5,17 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
-      "default": "./dist/main.js"
+      "types": "./dist/lib/main.d.ts",
+      "default": "./distlib//main.js"
     },
     "./base64": {
-      "types": "./dist/base64.d.ts",
-      "default": "./dist/base64.js"
+      "types": "./dist/lib/base64.d.ts",
+      "default": "./dist/lib/base64.js"
     }
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts",
-    "!dist/__tests__/**"
+    "dist/lib/**/*.js",
+    "dist/lib/**/*.d.ts"
   ],
   "scripts": {
     "preversion": "make test"
