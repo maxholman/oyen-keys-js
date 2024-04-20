@@ -6,6 +6,7 @@ all: test dist
 .PHONY: clean
 clean: node_modules
 	pnpm exec tsc -b --clean
+	rm -rf dist
 
 .PHONY: test
 test: node_modules
