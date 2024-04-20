@@ -14,8 +14,9 @@
     }
   },
   "files": [
-    "dist/*.js",
-    "dist/*.d.ts"
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "!dist/__tests__/**"
   ],
   "scripts": {
     "preversion": "make test"
