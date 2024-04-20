@@ -6,7 +6,7 @@
   "exports": {
     ".": {
       "types": "./dist/lib/main.d.ts",
-      "default": "./distlib//main.js"
+      "default": "./dist/lib//main.js"
     },
     "./base64": {
       "types": "./dist/lib/base64.d.ts",
