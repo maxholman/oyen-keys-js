@@ -32,4 +32,4 @@ jobs:
 
       - run: pnpm publish --access=public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} --no-git-checks
