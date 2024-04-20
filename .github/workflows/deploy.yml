@@ -19,14 +19,14 @@ jobs:
           NODE_ENV: development
         with:
           version: 8
-          run_install: true
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: 'https://npm.pkg.github.com'
           cache: 'pnpm'
+          node-version: 20
           scope: '@oyen'
+          registry-url: 'https://npm.pkg.github.com'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - run: make test
 
