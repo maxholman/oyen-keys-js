@@ -1,20 +1,17 @@
-name: Unit Tests (PR)
+name: Deploy
 
 on:
   pull_request:
-    branches: ['canary', 'master']
+    branches: ['main']
 
 jobs:
-  test:
+  publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
-          cache: 'pnpm'
+
       - run: make test

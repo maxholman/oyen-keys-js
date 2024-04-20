@@ -12,7 +12,7 @@ clean:
 
 .PHONY: test
 test:
-	NODE_OPTIONS=--experimental-vm-modules pnpm jest --watchAll
+	NODE_OPTIONS=--experimental-vm-modules pnpm jest
 
 node_modules: package.json
 	pnpm install
