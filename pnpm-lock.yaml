@@ -58,6 +58,9 @@ devDependencies:
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@20.12.7)
+  jest-cli:
+    specifier: ^29.7.0
+    version: 29.7.0(@types/node@20.12.7)
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
