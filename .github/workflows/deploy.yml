@@ -30,6 +30,6 @@ jobs:
 
       - run: make dist
 
-      - run: pnpm publish --access=public
+      - run: pnpm publish --access=public --no-git-checks
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} --no-git-checks
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
