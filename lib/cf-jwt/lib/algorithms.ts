@@ -1,4 +1,3 @@
-/// <reference lib="dom" />
 import type { JwtAlgorithm } from './main.js';
 
 export const algorithms: Record<

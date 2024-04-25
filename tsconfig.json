@@ -2,7 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "node16",
     "target": "es2022",
-    "lib": ["es2022"],
+    "lib": ["es2022", "webworker"],
     "module": "node16",
     "incremental": true,
     "strict": true,
@@ -24,6 +24,6 @@
     "allowArbitraryExtensions": true,
     "skipLibCheck": true
   },
-  "include": ["lib", "__tests__"],
+  "include": ["lib"],
   "exclude": ["./dist", "node_modules"]
 }

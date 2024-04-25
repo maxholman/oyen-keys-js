@@ -1,5 +1,3 @@
-/// <reference lib="dom" />
-
 import type { JsonObject } from 'type-fest';
 import { decodeBase64Url } from './base64.js';
 import { algorithms } from './cf-jwt/lib/algorithms.js';
