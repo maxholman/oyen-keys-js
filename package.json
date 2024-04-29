@@ -1,6 +1,6 @@
 {
   "name": "@oyen-oss/keys",
-  "version": "1.5.1",
+  "version": "2.0.0",
   "license": "MIT",
   "type": "module",
   "exports": {
