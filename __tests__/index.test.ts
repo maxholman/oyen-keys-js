@@ -1,5 +1,5 @@
 import { describe, test } from 'vitest';
-import { createApiKey } from '../lib/api-key.js';
+import { createToken } from '../lib/token.js';
 
 // fake for tests
 const privateKey =
@@ -7,23 +7,16 @@ const privateKey =
 
 describe('Basic', () => {
   // fake for tests
-  const teamId = 'z7t7j3d8cTD';
-  // fake for tests
   const eventSourceId = 'K7pWQnDx8z2Y';
   // fake for tests
   const channelName = 'main';
 
   test('Nothing', async () => {
-    const staticApiKey = await createApiKey({
+    const staticToken = await createToken({
       privateKey,
-      teamId,
       // ttlSecs: 3600,
       claims: {
-        //   // this is kind of like the user agent for an API call
-        //   // issuer: 'https://test.invalid',
         cap: {
-          // keys: ['list'],
-          // [`emails/${emailId}`]: ['read'],
           [`events/${eventSourceId}/channels/${channelName}`]: [
             'read',
             'publish',
@@ -32,7 +25,7 @@ describe('Basic', () => {
       },
     });
 
-    // const _transientApiKey = await createApiKey({
+    // const _transientAKey = await createToken({
     //   privateKey: process.env.OYEN_PRIVATE_KEY,
     //   teamId,
     //   ttlSecs: 3600,
@@ -49,6 +42,6 @@ describe('Basic', () => {
     //   },
     // });
 
-    console.log({ staticApiKey });
+    console.log({ staticToken });
   });
 });
