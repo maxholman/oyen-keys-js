@@ -109,10 +109,7 @@ export async function sign(
     ...(options.kid && { kid: options.kid }),
   });
 
-  const payloadStr = objectToBase64Url<JwtPayload>({
-    // iat: Math.floor(Date.now() / 1000),
-    ...payload,
-  });
+  const payloadStr = objectToBase64Url(payload);
 
   const dataStr = `${headerStr}.${payloadStr}`;
 
