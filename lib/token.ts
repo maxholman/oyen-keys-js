@@ -25,7 +25,10 @@ export async function createToken<T extends JsonObject>({
     ['sign'],
   );
 
-  const iat = Math.floor(Date.now() / 1000);
+  const iat =
+    claims && 'iat' in claims && typeof claims.iat === 'number'
+      ? claims.iat
+      : Math.floor(Date.now() / 1000);
   const exp = ttlSecs ? iat + ttlSecs : undefined;
 
   return sign(
