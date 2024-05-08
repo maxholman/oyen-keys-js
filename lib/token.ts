@@ -3,7 +3,11 @@ import { decodeBase64Url } from './base64.js';
 import { algorithms } from './cf-jwt/lib/algorithms.js';
 import { sign } from './cf-jwt/lib/main.js';
 
-export async function createToken<T extends JsonObject>({
+type Claims = JsonObject & {
+  sub: string;
+};
+
+export async function createToken<T extends Claims>({
   privateKey,
   ttlSecs,
   claims,
