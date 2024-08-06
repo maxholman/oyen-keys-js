@@ -5,13 +5,19 @@ on:
     branches: ['main']
 
 jobs:
-  publish-npm:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22]
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          version: 8
+          node-version: ${{ matrix.node-version }}
 
       - run: make test
