@@ -5,8 +5,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
-      "default": "./dist/main.js"
+      "types": "./dist/lib/main.d.ts",
+      "default": "./dist/lib/main.js"
     }
   },
   "files": [
