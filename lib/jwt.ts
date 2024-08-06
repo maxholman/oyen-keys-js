@@ -1,7 +1,7 @@
 import type { JsonObject } from 'type-fest';
 import {
   base64UrlToObject,
-  decodeBase64Url,
+  base64UrlToUint8Array,
   objectToBase64Url,
 } from './base64.js';
 import { TokenValidationError } from './errors.js';
@@ -65,7 +65,7 @@ export function decode<P extends JwtPayload | JsonObject>(token: string) {
   return {
     header: base64UrlToObject(headerEncoded),
     payload: base64UrlToObject<P>(payloadEncoded),
-    signature: decodeBase64Url(signatureEncoded),
+    signature: base64UrlToUint8Array(signatureEncoded),
     signedData: new TextEncoder().encode(`${headerEncoded}.${payloadEncoded}`),
   };
 }

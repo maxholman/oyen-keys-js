@@ -1,5 +1,5 @@
 import type { JsonObject, SimplifyDeep } from 'type-fest';
-import { base64UrlToObject, encodeBase64Url } from './base64.js';
+import { base64UrlToObject, uint8ArrayToBase64Url } from './base64.js';
 import { TokenExpiredError } from './errors.js';
 import {
   getImportParams,
@@ -92,7 +92,7 @@ export async function signToken<T extends JwtPayload>(
     new TextEncoder().encode(encodedData),
   );
 
-  return `${encodedData}.${encodeBase64Url(new Uint8Array(signature))}`;
+  return `${encodedData}.${uint8ArrayToBase64Url(new Uint8Array(signature))}`;
 }
 
 export function decodeToken<T extends JwtPayload | JsonObject>(jwt: string) {
