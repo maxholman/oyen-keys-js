@@ -1,14 +1,4 @@
-# @oyen-oss/keys
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-## Description
-
-Currently under active development.
-
-## Example
-
-```typescript
+/* eslint-disable no-console */
 import { signToken, verifyToken } from '@oyen-oss/keys';
 
 const keys = await crypto.subtle
@@ -40,8 +30,3 @@ console.log('ES256 JWT:', jwt);
 const verified = await verifyToken(keys.public, jwt);
 
 console.log('Verified:', verified.payload.sub === 'alice');
-```
-
-## License
-
-Licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for more details.

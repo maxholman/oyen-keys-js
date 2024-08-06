@@ -9,6 +9,7 @@
     "declaration": true,
     "composite": true,
     "outDir": "dist",
+    "sourceMap": true,
     "types": [],
     "preserveSymlinks": true,
     "forceConsistentCasingInFileNames": true,
@@ -24,8 +25,9 @@
     "verbatimModuleSyntax": true,
     "removeComments": true,
     "allowArbitraryExtensions": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
   },
-  "include": ["lib"],
+  "include": ["lib", "examples"],
   "exclude": ["./dist", "node_modules"]
 }

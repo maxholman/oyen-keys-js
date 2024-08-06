@@ -1,7 +1,7 @@
+/* eslint-disable no-console */
 /// <reference types="node" />
 import { expect, test, vi } from 'vitest';
 import { signToken, verifyToken } from '../lib/main.js';
-import assert from 'assert';
 
 const publicExponent = new Uint8Array([1, 0, 1]);
 
