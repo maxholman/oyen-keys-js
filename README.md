@@ -42,6 +42,10 @@ const verified = await verifyToken(keys.public, jwt);
 console.log('Verified:', verified.payload.sub === 'alice');
 ```
 
+## Testing
+
+Top tip: Decode JWTs quickly online at https://jwt.one
+
 ## License
 
 Licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file for more details.
