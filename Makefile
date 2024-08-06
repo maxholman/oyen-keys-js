@@ -9,8 +9,8 @@ clean: node_modules
 	rm -rf dist
 
 .PHONY: test
-test: node_modules
-	NODE_OPTIONS=--experimental-vm-modules pnpm exec vitest
+test: node_modules dist
+	pnpm exec vitest
 
 node_modules: package.json
 	pnpm install

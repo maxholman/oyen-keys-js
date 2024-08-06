@@ -1,29 +1,37 @@
-import {
-  decode as decodeBase64,
-  encode as encodeBase64,
-} from 'base64-arraybuffer';
+import type { JsonObject } from 'type-fest';
+import type { JsonifiableObject } from 'type-fest/source/jsonifiable.js';
+import { base64ToUint8Array, uint8ArrayToBase64 } from 'uint8array-extras';
+import { ValidationError } from './errors.js';
+import { withNullProto } from './utils.js';
 
-export { decodeBase64, encodeBase64 };
+export {
+  base64ToUint8Array,
+  hexToUint8Array,
+  toUint8Array,
+  uint8ArrayToBase64,
+  uint8ArrayToHex,
+} from 'uint8array-extras';
 
-export function decodeBase64Url(str: string): ArrayBuffer {
-  return decodeBase64(str.replace(/-/g, '+').replace(/_/g, '/'));
+export function encodeBase64Url(arr: Uint8Array): string {
+  return uint8ArrayToBase64(arr, { urlSafe: true });
 }
 
-export function encodeBase64Url(arr: ArrayBuffer): string {
-  return encodeBase64(arr)
-    .replace(/\//g, '_')
-    .replace(/\+/g, '-')
-    .replace(/=+$/, '');
+export function decodeBase64Url(str: string): Uint8Array {
+  return base64ToUint8Array(str);
 }
 
-export function base64UrlToObject<T extends Record<string, unknown>>(
-  str: string,
-): T {
-  return JSON.parse(new TextDecoder().decode(decodeBase64Url(str))) as T;
+export function base64UrlToObject<T extends JsonObject>(str: string): T {
+  try {
+    return withNullProto(
+      JSON.parse(new TextDecoder().decode(base64ToUint8Array(str))) as T,
+    );
+  } catch (err) {
+    throw new ValidationError('base64tou8/decode/json.parse failed').debug({
+      str,
+    });
+  }
 }
 
-export function objectToBase64Url<T extends Record<string, unknown>>(
-  obj: T,
-): string {
+export function objectToBase64Url<T extends JsonifiableObject>(obj: T): string {
   return encodeBase64Url(new TextEncoder().encode(JSON.stringify(obj)));
 }
