@@ -45,7 +45,7 @@ export async function signToken<T extends JwtPayload>(
     ttlSecs = 60 * 60,
   }: {
     kid: string;
-    claims: T;
+    claims: Omit<T, 'exp' | 'iat'> & Partial<Pick<T, 'exp' | 'iat'>>;
     ttlSecs: number;
   },
 ) {
