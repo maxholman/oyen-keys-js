@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { signToken, verifyToken } from '@oyen-oss/keys';
+import { signToken, verifyToken } from '@oyenjs/keys';
 
 const keys = await crypto.subtle
   .generateKey(

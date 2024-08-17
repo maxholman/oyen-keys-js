@@ -1,4 +1,4 @@
-# @oyen-oss/keys
+# @oyenjs/keys
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,7 +9,7 @@ Currently under active development.
 ## Example
 
 ```typescript
-import { signToken, verifyToken } from '@oyen-oss/keys';
+import { signToken, verifyToken } from '@oyenjs/keys';
 
 const keys = await crypto.subtle
   .generateKey(
